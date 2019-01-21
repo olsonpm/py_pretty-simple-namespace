@@ -19,6 +19,8 @@ another_linked_list = "^0.1.0"
 [tool.poetry.dev-dependencies]
 simple_chalk = "^0.1.0"
 case_conversion = "^2.1"
+is_git_repo_clean = "^0.3.4"
+toml = "^0.10.0"
 
 [build-system]
 requires = ["poetry>=0.12"]
