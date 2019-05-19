@@ -14,9 +14,9 @@
 # Imports #
 # ------- #
 
-from all_purpose_dict import ApDict
-from another_linked_list import LinkedList
-from all_purpose_set import ApSet
+from ._vendor.all_purpose_dict import ApDict
+from ._vendor.another_linked_list import LinkedList
+from ._vendor.all_purpose_set import ApSet
 from types import SimpleNamespace as o
 from .queue import Queue
 import os
@@ -143,9 +143,7 @@ def bfFormat(something, style):
 
     def createCtx(currentCtx, **kwargs):
         props = o(**kwargs)
-        newCtx = assignAll.simpleNamespaces(
-            [makeDefaultCtxProps(), props, style]
-        )
+        newCtx = assignAll.simpleNamespaces([makeDefaultCtxProps(), props, style])
 
         if currentCtx:
             newCtx.refs = currentCtx.refs
@@ -207,8 +205,7 @@ def bfFormat(something, style):
             whenDoneFn()
 
     return passThrough(
-        rootCtx.result.append(""),
-        [list, discard(placeholder), joinWith(os.linesep)],
+        rootCtx.result.append(""), [list, discard(placeholder), joinWith(os.linesep)]
     )
 
 
@@ -223,8 +220,7 @@ def makeDefaultCtxProps():
 
 def toOrderedListByKey(aDict):
     return passThrough(
-        aDict,
-        [getListOfCollectionKeys, mOrder("desc"), map_(toValueFrom(aDict))],
+        aDict, [getListOfCollectionKeys, mOrder("desc"), map_(toValueFrom(aDict))]
     )
 
 
